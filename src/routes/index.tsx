@@ -5,40 +5,56 @@ import { Route, Navigate, Routes } from 'react-router-dom'
 import { Spinner } from '@/components/shared/spinner'
 import { useAuthContext } from '@/context/AuthContext'
 
-import ProtectedWrapper from './ProtectedWrapper'
+import LayoutWrapper from './LayoutWrapper'
+// import ProtectedWrapper from './ProtectedWrapper'
 
 const LazyLoginPage = lazy(() => import('@/pages/login'))
-// const LazyHomePage = lazy(() => import('@/pages/home'))
+const LazySignupPage = lazy(() => import('@/pages/signup'))
+const LazyHomePage = lazy(() => import('@/pages/home'))
 
-const RedirectToLoginOrHome = () => {
+const AppRoutes = () => {
   const { isAuthenticated } = useAuthContext()
-  return isAuthenticated ? <Navigate to="/" /> : <Navigate to="/login" />
-}
 
-const AppRoutes = () => (
-  <Routes>
-    <Route path="/" element={<RedirectToLoginOrHome />} />
-    <Route
-      path="/login"
-      element={
-        <Suspense fallback={<Spinner />}>
-          <ProtectedWrapper>
-            <LazyLoginPage />
-          </ProtectedWrapper>
-        </Suspense>
-      }
-    />
-    {/* <Route
-      path="/home"
-      element={
-        <Suspense fallback={<Spinner />}>
-          <ProtectedWrapper>
-            <LazyHomePage />
-          </ProtectedWrapper>
-        </Suspense>
-      }
-    /> */}
-  </Routes>
-)
+  return (
+    <Routes>
+      <Route
+        path="/home"
+        element={
+          isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/login" />
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <LayoutWrapper className="items-center justify-center">
+            <Suspense fallback={<Spinner />}>
+              <LazyLoginPage />
+            </Suspense>
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <LayoutWrapper className="items-center justify-center">
+            <Suspense fallback={<Spinner />}>
+              <LazySignupPage />
+            </Suspense>
+          </LayoutWrapper>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <LayoutWrapper>
+              <LazyHomePage />
+            </LayoutWrapper>
+          </Suspense>
+        }
+      />
+    </Routes>
+  )
+}
 
 export default AppRoutes

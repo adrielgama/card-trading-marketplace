@@ -15,14 +15,16 @@ const ProtectedWrapper: React.FC<ProtectedWrapperProps> = ({ children }) => {
   const location = useLocation()
 
   useEffect(() => {
-    if (!isAuthenticated && location.pathname !== '/login') {
-      navigate('/login')
-    } else if (isAuthenticated && location.pathname === '/login') {
+    const authPages = ['/login', '/signup']
+
+    if (isAuthenticated && authPages.includes(location.pathname)) {
       navigate('/')
+    } else if (!isAuthenticated && !authPages.includes(location.pathname)) {
+      navigate('/login')
     }
   }, [isAuthenticated, location.pathname, navigate])
 
-  if (!isAuthenticated && location.pathname !== '/login') {
+  if (!isAuthenticated && !['/login', '/signup'].includes(location.pathname)) {
     return <Spinner />
   }
 

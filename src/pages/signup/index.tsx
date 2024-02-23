@@ -19,22 +19,23 @@ import {
 import { Input } from '@/components/ui/input'
 import { formSchema } from '@/helpers/schemas'
 
-const loginSchema = formSchema.passthrough()
+const signupSchema = formSchema.passthrough()
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
 
-  const form = useForm<z.infer<typeof loginSchema>>({
-    resolver: zodResolver(loginSchema),
+  const form = useForm<z.infer<typeof signupSchema>>({
+    resolver: zodResolver(signupSchema),
     defaultValues: {
+      name: '',
       email: '',
       password: '',
     },
   })
 
-  const onSubmit = (values: z.infer<typeof loginSchema>) => {
+  const onSubmit = (values: z.infer<typeof signupSchema>) => {
     try {
       console.log(values.email, values.password)
       toast.success('Login efetuado com sucesso')
@@ -52,8 +53,25 @@ const Login: React.FC = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="grid space-y-6 rounded-md bg-white/80 px-16 py-12 text-center shadow-md backdrop-blur-sm"
         >
-          <h1 className="font-medium text-in-green-100">Login</h1>
+          <h1 className="font-medium text-in-green-100">Cadastro</h1>
           <div className="grid space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="name"
+                      placeholder="Informe seu nome"
+                      className={`first-of-type:font-m rounded-md p-6 placeholder:font-normal placeholder:text-gray-400 first-of-type:text-in-green-100 focus:outline-none ${field.value ? 'border-in-green-100' : 'border-gray-400'}`}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="email"
@@ -119,12 +137,12 @@ const Login: React.FC = () => {
           <div className="mt-3 flex w-full justify-center">
             <button
               type="button"
-              className="flex cursor-pointer flex-row gap-1 text-end text-xs text-in-orange-200 hover:text-in-orange-400 hover:underline"
-              onClick={() => navigate('/signup')}
+              className="flex cursor-pointer flex-row gap-1 text-end text-xs text-in-green-100 transition-all hover:text-in-green-600 hover:underline"
+              onClick={() => navigate('/login')}
             >
-              Não tem uma conta?
-              <span className="text-in-green-100 hover:text-in-green-600">
-                Registre-se.
+              Já tem uma conta?
+              <span className="text-in-orange-200 hover:text-in-orange-400">
+                Faça login.
               </span>
             </button>
           </div>
@@ -134,4 +152,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login
+export default Signup

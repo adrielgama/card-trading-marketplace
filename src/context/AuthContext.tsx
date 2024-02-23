@@ -28,6 +28,7 @@ interface IAuthContextData {
   currentUser: IUser | null
   login: (email: string, password: string) => Promise<void>
   logout: () => void
+  signup: (name: string, email: string, password: string) => Promise<void>
 }
 
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData)
@@ -68,6 +69,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     [navigate]
   )
 
+  const signup = useCallback(
+    async (name: string, email: string, password: string) => {
+      try {
+        await fetchData('/register', {
+          method: 'POST',
+          body: JSON.stringify({ name, email, password }),
+        })
+        toast.success('Cadastro efetuado com sucesso! Por favor, faça login.')
+        navigate('/login')
+      } catch (error) {
+        toast.error('Falha no cadastro. Verifique os dados inseridos.')
+      }
+    },
+    [navigate]
+  )
+
   const logout = useCallback(() => {
     destroyCookie(undefined, 'inmeta.token', { path: '/' })
     setIsAuthenticated(false)
@@ -80,6 +97,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     currentUser,
     login,
     logout,
+    signup,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
