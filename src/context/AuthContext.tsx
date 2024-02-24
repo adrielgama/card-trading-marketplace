@@ -55,7 +55,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
         const { token, user } = data
         setCookie(undefined, 'inmeta.token', token, {
-          maxAge: 30 * 24 * 60 * 60,
+          maxAge: 30 * 24 * 60 * 60, // 30 dias
           path: '/',
         })
         setIsAuthenticated(true)

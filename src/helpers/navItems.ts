@@ -1,16 +1,20 @@
 import {
+  LucideIcon,
   Home,
   Handshake,
   LogIn,
   SquareDashedBottom,
   Library,
-  LucideIcon,
+  LogOut,
+  Grip,
 } from 'lucide-react'
 
-interface NavItem {
-  name: string
-  route: string
-  icon: LucideIcon
+export interface NavItem {
+  name?: string
+  route?: string
+  icon?: LucideIcon
+  subMenu?: NavItem[]
+  action?: () => void
 }
 
 export const navItemsUnauthenticated: NavItem[] = [
@@ -34,13 +38,24 @@ export const navItemsUnauthenticated: NavItem[] = [
 export const navItemsAuthenticated: NavItem[] = [
   ...navItemsUnauthenticated.filter((item) => item.name !== 'Entrar'),
   {
-    name: 'Minhas Trocas',
-    route: '/my-trades',
-    icon: SquareDashedBottom,
+    name: 'Mais',
+    icon: Grip,
+    subMenu: [
+      {
+        name: 'Minhas Trocas',
+        route: '/my-trades',
+        icon: SquareDashedBottom,
+      },
+      {
+        name: 'Minhas Cartas',
+        route: '/my-cards',
+        icon: Library,
+      },
+    ],
   },
   {
-    name: 'Minhas Cartas',
-    route: '/my-cards',
-    icon: Library,
+    name: 'Sair',
+    icon: LogOut,
+    // action: () => logout(), // TODO PASSAR FUNÇÃO LOGOUT
   },
 ]
