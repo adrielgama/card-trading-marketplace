@@ -17,11 +17,13 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { useAuthContext } from '@/context/AuthContext'
 import { formSchema } from '@/helpers/schemas'
 
 const loginSchema = formSchema.passthrough()
 
 const Login: React.FC = () => {
+  const { login } = useAuthContext()
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
@@ -34,12 +36,12 @@ const Login: React.FC = () => {
     },
   })
 
-  const onSubmit = (values: z.infer<typeof loginSchema>) => {
+  const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     try {
-      console.log(values.email, values.password)
+      await login(values.email, values.password)
       toast.success('Login efetuado com sucesso')
     } catch (error) {
-      toast.error('Login ou senha inválidos')
+      toast.error('Falha no login. Verifique suas credenciais.')
       console.log(error)
     }
   }
