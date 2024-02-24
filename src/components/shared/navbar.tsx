@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-// import { useAuthContext } from '@/context/AuthContext'
+import { useAuthContext } from '@/context/AuthContext'
 import {
   navItemsAuthenticated,
-  // navItemsUnauthenticated,
+  navItemsUnauthenticated,
 } from '@/helpers/navItems'
 
 import { Logo } from './logo'
@@ -15,12 +15,11 @@ import MobileNavItem from './navbar/mobileNavItem'
 import SubMenuItem from './navbar/subMenuItem'
 
 export const Navbar: React.FC = () => {
-  // const { isAuthenticated } = useAuthContext()
+  const { isAuthenticated } = useAuthContext()
   const { pathname } = useLocation()
-  // const navItems = isAuthenticated
-  //   ? navItemsAuthenticated
-  //   : navItemsUnauthenticated
-  const navItems = navItemsAuthenticated
+  const navItems = isAuthenticated
+    ? navItemsAuthenticated
+    : navItemsUnauthenticated
 
   return (
     <div

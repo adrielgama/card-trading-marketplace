@@ -110,7 +110,7 @@ const Login: React.FC = () => {
             />
             <Button
               type="submit"
-              className="bg-in-gold-300 hover:bg-in-gold-400 w-full cursor-pointer gap-2 rounded-md py-4 text-base font-medium text-white disabled:bg-gray-500"
+              className="w-full cursor-pointer gap-2 rounded-md bg-in-gold-300 py-4 text-base font-medium text-white hover:bg-in-gold-400 disabled:bg-gray-500"
               disabled={form.formState.isSubmitting || !form.formState.isValid}
             >
               Entrar
@@ -119,7 +119,7 @@ const Login: React.FC = () => {
           <div className="mt-3 flex w-full justify-center">
             <button
               type="button"
-              className="text-in-gold-500 hover:text-in-gold-400 flex cursor-pointer flex-row gap-1 text-end text-xs hover:underline"
+              className="flex cursor-pointer flex-row gap-1 text-end text-xs text-in-gold-500 hover:text-in-gold-400 hover:underline"
               onClick={() => navigate('/signup')}
             >
               Não tem uma conta?

@@ -34,6 +34,7 @@ const Trade: React.FC = () => {
         allPages.length < maxPages ? allPages.length + 1 : undefined
       return nextPage
     },
+    refetchOnWindowFocus: false,
     initialPageParam: 1,
     retry: false,
     staleTime: 60 * 60 * 1000, // 1 hour

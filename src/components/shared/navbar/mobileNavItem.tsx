@@ -16,7 +16,7 @@ const MobileNavItem: React.FC<MobileNavItemProps> = ({ name, route, Icon }) => {
       to={route}
       className={`flex flex-col items-center justify-center space-y-1 text-xs lg:text-sm ${
         pathname === route
-          ? 'text-in-gold-200 font-bold hover:text-in-green-100'
+          ? 'font-bold text-in-gold-200 hover:text-in-green-100'
           : 'text-white hover:text-in-green-100'
       } lg:hidden`}
     >

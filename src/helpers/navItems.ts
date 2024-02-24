@@ -14,7 +14,6 @@ export interface NavItem {
   route?: string
   icon?: LucideIcon
   subMenu?: NavItem[]
-  action?: () => void
 }
 
 export const navItemsUnauthenticated: NavItem[] = [
@@ -56,6 +55,5 @@ export const navItemsAuthenticated: NavItem[] = [
   {
     name: 'Sair',
     icon: LogOut,
-    // action: () => logout(), // TODO PASSAR FUNÇÃO LOGOUT
   },
 ]

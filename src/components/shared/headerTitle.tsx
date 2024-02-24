@@ -22,7 +22,7 @@ export const HeaderTitle: React.FC<HeaderTitleProps> = ({
         {title}
       </h1>
       <div className="absolute right-[10%] z-50 flex animate-pulse items-center space-x-2 px-4 transition-all">
-        <span className="bg-in-gold-300 h-2 w-2" />
+        <span className="h-2 w-2 bg-in-gold-300" />
         <span className="h-2 w-2 bg-in-green-100" />
         <span className="h-2 w-2 bg-white" />
       </div>

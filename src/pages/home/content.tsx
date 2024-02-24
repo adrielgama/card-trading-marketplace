@@ -35,7 +35,7 @@ export const Content: React.FC = () => {
 
   return (
     <div className="container grid min-h-screen grid-cols-1 text-white lg:grid-cols-2">
-      <div className="flex flex-col justify-center space-y-4 p-8 lg:max-w-xl">
+      <div className="mt-10 flex flex-col justify-start space-y-16 p-8 md:mt-0 md:max-w-xl md:justify-center md:space-y-4">
         <h1 className="text-4xl font-bold drop-shadow-md">
           Seu mundo virtual de troca de cartas
         </h1>
@@ -44,7 +44,7 @@ export const Content: React.FC = () => {
         </p>
         <Button
           onClick={handleClick}
-          className="hover:bg-in-green-900 max-w-40 rounded bg-in-green-100 px-6 py-3 text-white drop-shadow-sm transition duration-300"
+          className="max-w-40 rounded bg-in-green-100 px-6 py-3 text-white drop-shadow-sm transition duration-300 hover:bg-in-green-900"
         >
           Explore
         </Button>

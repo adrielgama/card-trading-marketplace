@@ -14,7 +14,7 @@ const DesktopNavItem: React.FC<DesktopNavItemProps> = ({ name, route }) => {
       to={route}
       className={`hidden lg:flex lg:items-center lg:justify-center lg:space-x-4 ${
         pathname === route
-          ? 'text-in-gold-200 font-bold hover:text-in-green-100'
+          ? 'font-bold text-in-gold-200 hover:text-in-green-100'
           : 'text-white hover:text-in-green-100'
       }`}
     >
