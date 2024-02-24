@@ -50,7 +50,7 @@ const Login: React.FC = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid space-y-6 rounded-md bg-white/80 px-16 py-12 text-center shadow-md backdrop-blur-sm"
+          className="grid space-y-6 rounded-md bg-white px-16 py-12 text-center shadow-md backdrop-blur-sm"
         >
           <h1 className="font-medium text-in-green-100">Login</h1>
           <div className="grid space-y-4">
@@ -110,7 +110,7 @@ const Login: React.FC = () => {
             />
             <Button
               type="submit"
-              className="w-full cursor-pointer gap-2 rounded-md bg-in-orange-300 py-4 text-base font-medium text-white hover:bg-in-orange-400 disabled:bg-gray-500"
+              className="bg-in-gold-300 hover:bg-in-gold-400 w-full cursor-pointer gap-2 rounded-md py-4 text-base font-medium text-white disabled:bg-gray-500"
               disabled={form.formState.isSubmitting || !form.formState.isValid}
             >
               Entrar
@@ -119,7 +119,7 @@ const Login: React.FC = () => {
           <div className="mt-3 flex w-full justify-center">
             <button
               type="button"
-              className="flex cursor-pointer flex-row gap-1 text-end text-xs text-in-orange-200 hover:text-in-orange-400 hover:underline"
+              className="text-in-gold-500 hover:text-in-gold-800 flex cursor-pointer flex-row gap-1 text-end text-xs hover:underline"
               onClick={() => navigate('/signup')}
             >
               Não tem uma conta?

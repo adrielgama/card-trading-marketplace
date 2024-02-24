@@ -51,7 +51,7 @@ const Signup: React.FC = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid space-y-6 rounded-md bg-white/80 px-16 py-12 text-center shadow-md backdrop-blur-sm"
+          className="grid space-y-6 rounded-md bg-white px-16 py-12 text-center shadow-md backdrop-blur-sm"
         >
           <h1 className="font-medium text-in-green-100">Cadastro</h1>
           <div className="grid space-y-4">
@@ -128,7 +128,7 @@ const Signup: React.FC = () => {
             />
             <Button
               type="submit"
-              className="w-full cursor-pointer gap-2 rounded-md bg-in-orange-300 py-4 text-base font-medium text-white hover:bg-in-orange-400 disabled:bg-gray-500"
+              className="bg-in-gold-300 hover:bg-in-gold-400 w-full cursor-pointer gap-2 rounded-md py-4 text-base font-medium text-white disabled:bg-gray-500"
               disabled={form.formState.isSubmitting || !form.formState.isValid}
             >
               Entrar
@@ -141,7 +141,7 @@ const Signup: React.FC = () => {
               onClick={() => navigate('/login')}
             >
               Já tem uma conta?
-              <span className="text-in-orange-200 hover:text-in-orange-400">
+              <span className="text-in-gold-500 hover:text-in-gold-800">
                 Faça login.
               </span>
             </button>

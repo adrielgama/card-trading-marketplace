@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { AuthProvider } from '@/context/AuthContext'
 
 import './globals.css'
+import { TradesProvider } from './context/TradesContext'
 import AppRoutes from './routes'
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
         }}
       />
       <AuthProvider>
-        <AppRoutes />
+        <TradesProvider>
+          <AppRoutes />
+        </TradesProvider>
       </AuthProvider>
     </Router>
   )

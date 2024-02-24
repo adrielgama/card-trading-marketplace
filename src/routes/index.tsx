@@ -11,6 +11,7 @@ import LayoutWrapper from './LayoutWrapper'
 const LazyLoginPage = lazy(() => import('@/pages/login'))
 const LazySignupPage = lazy(() => import('@/pages/signup'))
 const LazyHomePage = lazy(() => import('@/pages/home'))
+const LazyTradePage = lazy(() => import('@/pages/trade'))
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuthContext()
@@ -47,9 +48,15 @@ const AppRoutes = () => {
         path="/"
         element={
           <Suspense fallback={<Spinner />}>
-            <LayoutWrapper>
-              <LazyHomePage />
-            </LayoutWrapper>
+            <LazyHomePage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/trades"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <LazyTradePage />
           </Suspense>
         }
       />
