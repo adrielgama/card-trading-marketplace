@@ -9,7 +9,6 @@ import React, {
 
 import { setCookie, destroyCookie, parseCookies } from 'nookies'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'sonner'
 
 import { fetchData } from '@/api/fetchData'
 
@@ -60,10 +59,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         })
         setIsAuthenticated(true)
         setCurrentUser(user)
-        toast.success('Login efetuado com sucesso!')
         navigate('/')
       } catch (error) {
-        toast.error('Falha no login. Verifique suas credenciais.')
+        throw new Error('Falha no login. Verifique suas credenciais.')
       }
     },
     [navigate]
@@ -76,10 +74,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           method: 'POST',
           body: JSON.stringify({ name, email, password }),
         })
-        toast.success('Cadastro efetuado com sucesso! Por favor, faça login.')
         navigate('/login')
       } catch (error) {
-        toast.error('Falha no cadastro. Verifique os dados inseridos.')
+        throw new Error('Falha no cadastro. Verifique os dados inseridos.')
       }
     },
     [navigate]

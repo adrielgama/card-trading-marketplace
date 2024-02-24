@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { parseCookies } from 'nookies'
-import { toast } from 'sonner'
 
 const { VITE_API_URL } = import.meta.env
 
@@ -33,7 +32,6 @@ export async function fetchData(
         errorMessage = 'Erro ao configurar a requisição.'
       }
     }
-    toast.error(errorMessage)
-    throw error
+    throw new Error(errorMessage)
   }
 }
