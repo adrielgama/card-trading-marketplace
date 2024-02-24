@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <div
-      className={`${pathname === '/' ? 'bg-in-green-900/60' : 'bg-in-green-900'} fixed bottom-0 z-50 h-16 w-full p-4 text-white shadow-md lg:top-0 lg:h-20`}
+      className={`${pathname === '/' ? 'bg-in-green-900/80' : 'bg-in-green-900'} fixed bottom-0 z-50 h-16 w-full p-4 text-white shadow-md lg:top-0 lg:h-20`}
     >
       <div className="mx-auto md:container">
         <nav className="flex w-full justify-between space-x-4 lg:justify-evenly">
@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
               <li key={name}>
                 <Link
                   to={route}
-                  className="flex flex-col items-center space-y-1 text-white hover:text-in-green-100"
+                  className={`flex flex-col items-center space-y-1 ${pathname === route ? 'text-in-gold-200 font-bold hover:text-in-green-100' : 'text-white hover:text-in-green-100'}`}
                 >
                   {Icon && <Icon size="20" className="lg:hidden" />}
                   <span

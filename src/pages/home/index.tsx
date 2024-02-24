@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-screen w-screen overflow-hidden bg-cover bg-left md:bg-left lg:bg-left"
+      className="relative h-screen w-screen overflow-hidden bg-cover bg-left"
       style={{
         backgroundImage: `url(${FantasyBG})`,
         backgroundSize: 'cover',
