@@ -141,7 +141,7 @@ const Signup: React.FC = () => {
               onClick={() => navigate('/login')}
             >
               Já tem uma conta?
-              <span className="text-in-gold-500 hover:text-in-gold-800">
+              <span className="text-in-gold-500 hover:text-in-gold-400">
                 Faça login.
               </span>
             </button>

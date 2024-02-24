@@ -119,7 +119,7 @@ const Login: React.FC = () => {
           <div className="mt-3 flex w-full justify-center">
             <button
               type="button"
-              className="text-in-gold-500 hover:text-in-gold-800 flex cursor-pointer flex-row gap-1 text-end text-xs hover:underline"
+              className="text-in-gold-500 hover:text-in-gold-400 flex cursor-pointer flex-row gap-1 text-end text-xs hover:underline"
               onClick={() => navigate('/signup')}
             >
               Não tem uma conta?
