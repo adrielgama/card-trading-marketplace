@@ -18,9 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        'in-orange-200': '#FF8550',
-        'in-orange-300': '#FF7235',
-        'in-orange-400': '#FF501C',
+        'in-gold-200': '#FFD60A',
+        'in-gold-300': '#FFC300',
+        'in-gold-400': '#FF7B00',
+        'in-gold-500': '#CCA000',
+        'in-gold-800': '#A63C06',
         'in-green-50': '#ECFFF9',
         'in-green-100': '#009264',
         'in-green-300': '#386D52',
@@ -28,6 +30,7 @@ module.exports = {
         'in-green-500': '#244932',
         'in-green-600': '#2A493A',
         'in-green-800': '#30433D',
+        'in-green-900': '#080D0C',
       },
       keyframes: {
         'accordion-down': {
