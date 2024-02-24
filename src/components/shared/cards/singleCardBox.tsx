@@ -28,7 +28,7 @@ export const SingleCardBox: React.FC<SingleCardBoxProps> = ({ tradeCard }) => {
         <img
           src={imageUrl}
           alt={`Card ${name}`}
-          className={`rounded-sm border-2 ${borderColorClass}`}
+          className={`rounded-sm border-2 ${borderColorClass} w-44`}
         />
         <span className={`text-sm font-medium ${textColorClass}`}>
           {textShown}
