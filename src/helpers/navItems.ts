@@ -1,13 +1,4 @@
-import {
-  LucideIcon,
-  Home,
-  Handshake,
-  LogIn,
-  SquareDashedBottom,
-  Library,
-  LogOut,
-  Grip,
-} from 'lucide-react'
+import { LucideIcon, Home, Handshake, LogIn, LogOut, Grip } from 'lucide-react'
 
 export interface NavItem {
   name?: string
@@ -43,12 +34,10 @@ export const navItemsAuthenticated: NavItem[] = [
       {
         name: 'Minhas Trocas',
         route: '/my-trades',
-        icon: SquareDashedBottom,
       },
       {
-        name: 'Minhas Cartas',
-        route: '/my-cards',
-        icon: Library,
+        name: 'Minha conta',
+        route: '/my-account',
       },
     ],
   },

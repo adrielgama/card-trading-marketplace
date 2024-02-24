@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const { token } = parseCookies()
+    const { 'inmeta.token': token } = parseCookies()
     setIsAuthenticated(!!token)
   }, [])
 
@@ -86,7 +86,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     destroyCookie(undefined, 'inmeta.token', { path: '/' })
     setIsAuthenticated(false)
     setCurrentUser(null)
-    navigate('/login')
+    navigate('/')
   }, [navigate])
 
   const value = {

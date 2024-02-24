@@ -8,11 +8,11 @@ import {
   navItemsUnauthenticated,
 } from '@/helpers/navItems'
 
-import { Logo } from './logo'
-import DesktopNavItem from './navbar/desktopNavItem'
-import DropdownLink from './navbar/dropdownLink'
-import MobileNavItem from './navbar/mobileNavItem'
-import SubMenuItem from './navbar/subMenuItem'
+import DesktopNavItem from './desktopNavItem'
+import DropdownLink from './dropdownLink'
+import MobileNavItem from './mobileNavItem'
+import SubMenuItem from './subMenuItem'
+import { Logo } from '../logo'
 
 export const Navbar: React.FC = () => {
   const { isAuthenticated } = useAuthContext()

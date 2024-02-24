@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Link, useLocation } from 'react-router-dom'
 
+import { useAuthContext } from '@/context/AuthContext'
+
 type DesktopNavItemProps = {
   name: string
   route: string
@@ -9,6 +11,11 @@ type DesktopNavItemProps = {
 
 const DesktopNavItem: React.FC<DesktopNavItemProps> = ({ name, route }) => {
   const { pathname } = useLocation()
+  const { logout } = useAuthContext()
+
+  const handleLogout = () => {
+    if (name === 'Sair') return logout()
+  }
   return (
     <Link
       to={route}
@@ -17,6 +24,7 @@ const DesktopNavItem: React.FC<DesktopNavItemProps> = ({ name, route }) => {
           ? 'font-bold text-in-gold-200 hover:text-in-green-100'
           : 'text-white hover:text-in-green-100'
       }`}
+      onClick={name === 'Sair' ? handleLogout : undefined}
     >
       {name}
     </Link>
