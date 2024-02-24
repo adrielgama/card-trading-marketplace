@@ -5,6 +5,7 @@ import { AuthProvider } from '@/context/AuthContext'
 
 import './globals.css'
 import { TradesProvider } from './context/TradesContext'
+import { UserProvider } from './context/UserContext'
 import AppRoutes from './routes'
 
 function App() {
@@ -21,9 +22,11 @@ function App() {
         }}
       />
       <AuthProvider>
-        <TradesProvider>
-          <AppRoutes />
-        </TradesProvider>
+        <UserProvider>
+          <TradesProvider>
+            <AppRoutes />
+          </TradesProvider>
+        </UserProvider>
       </AuthProvider>
     </Router>
   )

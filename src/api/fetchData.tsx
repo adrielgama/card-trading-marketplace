@@ -7,7 +7,7 @@ export async function fetchData(
   endpoint: string,
   { method = 'GET', body = null }: { method?: string; body?: string | null }
 ) {
-  const { token } = parseCookies()
+  const { 'inmeta.token': token } = parseCookies()
   const config = {
     method,
     url: `${VITE_API_URL}${endpoint}`,

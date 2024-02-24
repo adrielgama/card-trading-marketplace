@@ -6,6 +6,7 @@ import { Trade, TradeCard } from '@/helpers/types'
 interface TradesProviderProps {
   children: ReactNode
 }
+
 interface TradesContextType {
   createTrade: (cards: TradeCard[]) => Promise<void>
   getTrades: (rpp: number, page: number) => Promise<Trade[]>
@@ -16,7 +17,6 @@ const TradesContext = createContext<TradesContextType>(null!)
 
 export const useTradesContext = () => useContext(TradesContext)
 
-// Provedor do contexto
 export const TradesProvider: React.FC<TradesProviderProps> = ({ children }) => {
   const createTrade = useCallback(async (cards: TradeCard[]): Promise<void> => {
     await fetchData('/trades', {

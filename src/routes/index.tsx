@@ -6,12 +6,13 @@ import { Spinner } from '@/components/shared/spinner'
 import { useAuthContext } from '@/context/AuthContext'
 
 import LayoutWrapper from './LayoutWrapper'
-// import ProtectedWrapper from './ProtectedWrapper'
+import ProtectedWrapper from './ProtectedWrapper'
 
 const LazyLoginPage = lazy(() => import('@/pages/login'))
 const LazySignupPage = lazy(() => import('@/pages/signup'))
 const LazyHomePage = lazy(() => import('@/pages/home'))
 const LazyTradePage = lazy(() => import('@/pages/trade'))
+const LazyAccountPage = lazy(() => import('@/pages/account'))
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuthContext()
@@ -57,6 +58,16 @@ const AppRoutes = () => {
         element={
           <Suspense fallback={<Spinner />}>
             <LazyTradePage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/my-account/*"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <ProtectedWrapper>
+              <LazyAccountPage />
+            </ProtectedWrapper>
           </Suspense>
         }
       />

@@ -17,10 +17,10 @@ const ProtectedWrapper: React.FC<ProtectedWrapperProps> = ({ children }) => {
   useEffect(() => {
     const authPages = ['/login', '/signup']
 
-    if (isAuthenticated && authPages.includes(location.pathname)) {
+    if (isAuthenticated && authPages.includes(location.pathname)) return
+
+    if (!isAuthenticated && !authPages.includes(location.pathname)) {
       navigate('/')
-    } else if (!isAuthenticated && !authPages.includes(location.pathname)) {
-      navigate('/login')
     }
   }, [isAuthenticated, location.pathname, navigate])
 

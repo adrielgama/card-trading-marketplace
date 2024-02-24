@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
-import backgroundImage from '@/assets/bg-svg-4.svg'
+import backgroundImage from '@/assets/bg-3.jpg'
 import { LoadingSpinnerText } from '@/components/shared/cards/loadingSpinnerText'
 import { OfferCardBox } from '@/components/shared/cards/offerCardBox'
 import { HeaderTitle } from '@/components/shared/headerTitle'

@@ -28,4 +28,11 @@ interface Trade {
   tradeCards: TradeCard[]
 }
 
-export type { TradeCard, Trade, CardType }
+interface IUser {
+  id: string
+  name: string
+  email: string
+  cards: Card[]
+}
+
+export type { TradeCard, Trade, CardType, Card, UserTrade, IUser }
