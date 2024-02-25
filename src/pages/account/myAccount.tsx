@@ -3,8 +3,8 @@ import React from 'react'
 import BackgroundImage from '@/assets/logo.webp'
 
 interface User {
-  name: string
-  email: string
+  name: string | undefined
+  email: string | undefined
 }
 
 export const MyAccountSection: React.FC<User> = ({ name, email }) => {

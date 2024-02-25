@@ -2,7 +2,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   useCallback,
   ReactNode,
 } from 'react'
@@ -58,7 +57,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         page: page.toString(),
       }).toString()
       try {
-        const { list } = await fetchData(`/cards${queryParams}`, {
+        const { list } = await fetchData(`/cards?${queryParams}`, {
           method: 'GET',
         })
         return list
@@ -84,10 +83,6 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     },
     [fetchUserCards]
   )
-
-  useEffect(() => {
-    fetchUser()
-  }, [fetchUser])
 
   const value = {
     user,

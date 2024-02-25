@@ -16,7 +16,11 @@ export const OfferCardBox: React.FC<OfferCardBoxProps> = ({ trade }) => {
       </div>
       <div className="flex items-center justify-center space-x-2">
         {trade.tradeCards.map((tradeCard) => (
-          <SingleCardBox key={tradeCard.cardId} tradeCard={tradeCard} />
+          <SingleCardBox
+            key={tradeCard.cardId}
+            card={tradeCard.card}
+            type={tradeCard.type}
+          />
         ))}
       </div>
     </div>
