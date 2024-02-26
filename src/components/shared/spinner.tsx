@@ -1,6 +1,6 @@
 import { Loader } from 'lucide-react'
 
-import BackgroundImage from '@/assets/smoke-bg.webp'
+import BackgroundImage from '@/assets/bg-green-smoke.webp'
 
 import { Logo } from './logo'
 

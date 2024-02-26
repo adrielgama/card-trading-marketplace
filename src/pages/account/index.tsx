@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react'
 
-import BackgroundImage from '@/assets/bg-2.jpg'
+import BackgroundImage from '@/assets/bg-spark.webp'
 import { TabBar } from '@/components/shared/account'
 import { Navbar } from '@/components/shared/navbar'
 import { Spinner } from '@/components/shared/spinner'

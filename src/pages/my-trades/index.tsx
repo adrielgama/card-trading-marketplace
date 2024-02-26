@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from 'react'
 
 import { useQueryClient } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
-import backgroundImage from '@/assets/bg-3.jpg'
+import BackgroundImage from '@/assets/bg-smoke.webp'
 import { OfferCardBox } from '@/components/shared/cards/offerCardBox'
 import { HeaderTitle } from '@/components/shared/headerTitle'
 import { Navbar } from '@/components/shared/navbar'
@@ -24,6 +25,7 @@ const MyTrades: React.FC = () => {
     useTradesContext()
   const queryClient = useQueryClient()
   const { data, isLoading, error } = useTrades(30)
+  const navigate = useNavigate()
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [modalStep, setModalStep] = useState(1)
 
@@ -83,7 +85,7 @@ const MyTrades: React.FC = () => {
       <div
         className="relative h-screen w-screen overflow-auto bg-cover"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url(${BackgroundImage})`,
         }}
       >
         <div className="relative z-10">
@@ -91,8 +93,14 @@ const MyTrades: React.FC = () => {
           <div className="container mb-20 space-y-1 pt-4 lg:mt-20">
             <HeaderTitle title="Minhas trocas" />
             {userCardsData?.cards.length === 0 ? (
-              <div className="flex h-[60vh] items-center justify-center bg-white">
-                <Button className="bg-in-green-300 text-white hover:bg-in-green-100">
+              <div className="flex h-[60vh] flex-col items-center justify-center space-y-4 bg-white">
+                <h1 className="text-center text-xl font-bold text-in-green-300 lg:text-2xl">
+                  Ainda não existem cartas adicionadas à sua conta
+                </h1>
+                <Button
+                  className="bg-in-green-300 text-white hover:bg-in-green-100"
+                  onClick={() => navigate('/my-account')}
+                >
                   Adicionar cartas
                 </Button>
               </div>

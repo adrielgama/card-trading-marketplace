@@ -71,6 +71,8 @@ const CardsSelectionDialog: React.FC = () => {
 
   const refetchCards = useCallback(() => {
     queryClient.invalidateQueries({ queryKey: ['my-cards'] })
+    queryClient.invalidateQueries({ queryKey: ['my-account'] })
+    queryClient.invalidateQueries({ queryKey: ['trades'] })
   }, [queryClient])
 
   const handleSave = async () => {

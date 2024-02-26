@@ -133,7 +133,7 @@ const Signup: React.FC = () => {
               className="w-full cursor-pointer gap-2 rounded-md bg-in-gold-300 py-4 text-base font-medium text-white hover:bg-in-gold-400 disabled:bg-gray-500"
               disabled={form.formState.isSubmitting || !form.formState.isValid}
             >
-              Entrar
+              Cadastrar
             </Button>
           </div>
           <div className="mt-3 flex w-full justify-center">
