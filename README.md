@@ -1,6 +1,6 @@
 # Teste prático INMETA (02/2024)
 
-![Project Logo](public/text.webp)
+![Project Logo](public/logo_text.webp)
 
 [Pojeto rodando na VERCEL](https://card-trading-marketplace.vercel.app/)
 
