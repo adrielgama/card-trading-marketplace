@@ -28,6 +28,11 @@ interface Trade {
   tradeCards: TradeCard[]
 }
 
+interface TradeCardPayload {
+  cardId: string
+  type: CardType
+}
+
 interface IUser {
   id: string
   name: string
@@ -35,4 +40,12 @@ interface IUser {
   cards: Card[]
 }
 
-export type { TradeCard, Trade, CardType, Card, UserTrade, IUser }
+export type {
+  CardType,
+  Card,
+  TradeCard,
+  UserTrade,
+  Trade,
+  TradeCardPayload,
+  IUser,
+}

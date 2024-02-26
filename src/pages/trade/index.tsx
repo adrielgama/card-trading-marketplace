@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 
-import { useInfiniteQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
 import backgroundImage from '@/assets/bg-3.jpg'
@@ -9,36 +8,21 @@ import { OfferCardBox } from '@/components/shared/cards/offerCardBox'
 import { HeaderTitle } from '@/components/shared/headerTitle'
 import { Navbar } from '@/components/shared/navbar'
 import { Spinner } from '@/components/shared/spinner'
-import { useTradesContext } from '@/context/TradesContext'
 import { Trade as TradeType } from '@/helpers/types'
+import { useTrades } from '@/hooks/useTrades'
 
 const Trade: React.FC = () => {
-  const { getTrades } = useTradesContext()
-
-  const observer = useRef<IntersectionObserver>()
-  const atBottomRef = useRef(null)
-
   const {
     data,
+    isLoading,
+    error,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-    isLoading,
-    error,
-  } = useInfiniteQuery({
-    queryKey: ['trades'],
-    queryFn: ({ pageParam = 1 }) => getTrades(10, pageParam),
-    getNextPageParam: (_lastPage, allPages) => {
-      const maxPages = 3
-      const nextPage =
-        allPages.length < maxPages ? allPages.length + 1 : undefined
-      return nextPage
-    },
-    refetchOnWindowFocus: false,
-    initialPageParam: 1,
-    retry: false,
-    staleTime: 60 * 60 * 1000, // 1 hour
-  })
+  } = useTrades()
+
+  const observer = useRef<IntersectionObserver>()
+  const atBottomRef = useRef(null)
 
   const loadMore = useCallback(
     (entries: IntersectionObserverEntry[]) => {

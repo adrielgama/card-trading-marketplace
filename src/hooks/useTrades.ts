@@ -1,14 +1,14 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 
-import { useUserContext } from '@/context/UserContext'
-import { Card } from '@/helpers/types'
+import { useTradesContext } from '@/context/TradesContext'
+import { Trade } from '@/helpers/types'
 
-export const useCardsToBuy = () => {
-  const { fetchAllCards } = useUserContext()
+export const useTrades = (size?: number) => {
+  const { getTrades } = useTradesContext()
 
-  return useInfiniteQuery<Card[], Error>({
-    queryKey: ['cards-to-buy'],
-    queryFn: ({ pageParam = 1 }) => fetchAllCards(10, pageParam as number),
+  return useInfiniteQuery<Trade[], Error>({
+    queryKey: ['trades'],
+    queryFn: ({ pageParam = 1 }) => getTrades(size ?? 10, pageParam as number),
     getNextPageParam: (_lastPage, allPages) => {
       const maxPages = 3
       const nextPage =

@@ -42,7 +42,7 @@ const Login: React.FC = () => {
       toast.success('Login efetuado com sucesso')
     } catch (error) {
       toast.error('Falha no login. Verifique suas credenciais.')
-      console.log(error)
+      console.error(error)
     }
   }
 

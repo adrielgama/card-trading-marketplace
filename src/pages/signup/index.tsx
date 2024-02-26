@@ -43,7 +43,7 @@ const Signup: React.FC = () => {
       toast.success('Cadastro efetuado com sucesso! Por favor, faça login.')
     } catch (error) {
       toast.error('Falha no cadastro. Verifique os dados inseridos.')
-      console.log(error)
+      console.error(error)
     }
   }
 

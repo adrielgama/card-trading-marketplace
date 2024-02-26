@@ -12,6 +12,7 @@ const LazyLoginPage = lazy(() => import('@/pages/login'))
 const LazySignupPage = lazy(() => import('@/pages/signup'))
 const LazyHomePage = lazy(() => import('@/pages/home'))
 const LazyTradePage = lazy(() => import('@/pages/trade'))
+const LazyMyTradesPage = lazy(() => import('@/pages/my-trades'))
 const LazyAccountPage = lazy(() => import('@/pages/account'))
 
 const AppRoutes = () => {
@@ -62,7 +63,17 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/my-account/*"
+        path="/my-trades"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <ProtectedWrapper>
+              <LazyMyTradesPage />
+            </ProtectedWrapper>
+          </Suspense>
+        }
+      />
+      <Route
+        path="/my-account"
         element={
           <Suspense fallback={<Spinner />}>
             <ProtectedWrapper>

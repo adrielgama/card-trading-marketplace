@@ -25,9 +25,7 @@ const CardsSection: React.FC = () => {
     }
   }, [error])
 
-  if (isLoading) {
-    return <Spinner />
-  }
+  if (isLoading) return <Spinner />
 
   const ButtonDialog = (
     <Dialog>
@@ -45,7 +43,11 @@ const CardsSection: React.FC = () => {
           </Button>
         </DialogTrigger>
       </div>
-      <CardsSelectionDialog />
+      {isDialogOpen && (
+        <React.Suspense fallback={<Spinner />}>
+          <CardsSelectionDialog />
+        </React.Suspense>
+      )}
     </Dialog>
   )
 
