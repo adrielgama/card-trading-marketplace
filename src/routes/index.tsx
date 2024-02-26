@@ -14,6 +14,7 @@ const LazyHomePage = lazy(() => import('@/pages/home'))
 const LazyTradePage = lazy(() => import('@/pages/trade'))
 const LazyMyTradesPage = lazy(() => import('@/pages/my-trades'))
 const LazyAccountPage = lazy(() => import('@/pages/account'))
+const LazyNotFoundPage = lazy(() => import('@/pages/404'))
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuthContext()
@@ -79,6 +80,14 @@ const AppRoutes = () => {
             <ProtectedWrapper>
               <LazyAccountPage />
             </ProtectedWrapper>
+          </Suspense>
+        }
+      />
+      <Route
+        path="/*"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <LazyNotFoundPage />
           </Suspense>
         }
       />
