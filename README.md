@@ -43,6 +43,8 @@ O projeto foi construído utilizando `ReactJS` e `TailwindCSS` para estilizaçã
 
 Ícones foram incorporados através do `Lucide Icons`, e o design global foi inspiração própria.
 
+Foram utilizadas técnicas de SEO e otimização de desempenho.
+
 ## Execução do Projeto
 1. Certifique-se de ter `Node` instalado.
 2. Clone o repositório: `git clone https://github.com/adrielgama/card-trading-marketplace.git`
