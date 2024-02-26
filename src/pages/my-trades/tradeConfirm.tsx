@@ -43,7 +43,7 @@ const TradeConfirmation: React.FC<TradeConfirmationProps> = ({ onConfirm }) => {
               <SingleCardBox
                 key={card.id}
                 card={card}
-                className="min-w-[5rem] lg:max-w-[6rem]"
+                className="max-w-[5.5rem] lg:max-w-[6rem]"
               />
             ))}
           </div>
@@ -55,7 +55,7 @@ const TradeConfirmation: React.FC<TradeConfirmationProps> = ({ onConfirm }) => {
               <SingleCardBox
                 key={card.id}
                 card={card}
-                className="min-w-[5rem] lg:max-w-[6rem]"
+                className="max-w-[5.5rem] lg:max-w-[6rem]"
               />
             ))}
           </div>
