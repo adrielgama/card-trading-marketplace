@@ -12,6 +12,7 @@ function App() {
   return (
     <Router>
       <Toaster
+        position="top-center"
         richColors
         theme="light"
         toastOptions={{
